@@ -1,0 +1,16 @@
+{
+  "name": "jaetube",
+  "version": "1.0.0",
+  "description": "video app with crud",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hingjae/jaetube.git"
+  },
+  "author": "hingjae",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hingjae/jaetube/issues"
+  },
+  "homepage": "https://github.com/hingjae/jaetube#readme"
+}
