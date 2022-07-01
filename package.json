@@ -7,7 +7,7 @@
     "url": "git+https://github.com/hingjae/jaetube.git"
   },
   "scripts": {
-    "win": "node index.js"
+    "dev": "nodemon --exec babel-node src/server.js"
   },
   "author": "hingjae",
   "license": "MIT",
@@ -19,8 +19,9 @@
     "express": "^4.18.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.5",
-    "@babel/node": "^7.18.5",
-    "@babel/preset-env": "^7.18.2"
+    "@babel/core": "^7.18.6",
+    "@babel/node": "^7.18.6",
+    "@babel/preset-env": "^7.18.2",
+    "nodemon": "^2.0.18"
   }
 }
