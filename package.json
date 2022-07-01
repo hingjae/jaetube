@@ -2,15 +2,25 @@
   "name": "jaetube",
   "version": "1.0.0",
   "description": "video app with crud",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hingjae/jaetube.git"
+  },
+  "scripts": {
+    "win": "node index.js"
   },
   "author": "hingjae",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hingjae/jaetube/issues"
   },
-  "homepage": "https://github.com/hingjae/jaetube#readme"
+  "homepage": "https://github.com/hingjae/jaetube#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/node": "^7.18.5",
+    "@babel/preset-env": "^7.18.2"
+  }
 }
