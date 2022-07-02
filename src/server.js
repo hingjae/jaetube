@@ -1,6 +1,7 @@
 import express from "express";
 
 const PORT = 4000;
+
 const app = express();
 
 const logger = (req, res, next) => {
@@ -11,27 +12,19 @@ const logger = (req, res, next) => {
 const privateMiddleware = (req, res, next) => {
   const url = req.url;
   if (url === "/protected") {
-    return res.send("<h1>Not allowed</h1>");
+    return res.send("<h1>Not Allowed</h1>");
   }
-  console.log("Allowed, you may continue.");
   next();
 };
 
 const handleHome = (req, res) => {
-  return res.send("I love middlewares.");
+  return res.end();
 };
 
-const handleProtected = (req, res) => {
-  return res.send("Welcome to the pricate lounge.");
-};
-
-app.get("/", logger, handleHome);
+app.use(logger); //모든 route에서 middleware를 사용함.!!
+app.get("/", handleHome);
 
 const handleListening = () =>
-  console.log(`Server listening on port http://localhost:${PORT}`);
-
-const handleLogin = (req, res) => {
-  return res.send({ message: "Login here." });
-};
+  console.log(`✅Server listening on port http://localhost:${PORT} 🚀`);
 
 app.listen(PORT, handleListening);
