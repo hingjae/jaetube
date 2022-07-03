@@ -10,6 +10,7 @@ const app = express();
 const logger = morgan("dev");
 app.use(logger);
 
+app.set("view engine", "pug"); // pug사용을 위한 setting
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
