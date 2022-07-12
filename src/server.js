@@ -13,7 +13,7 @@ const logger = morgan("dev");
 app.set("view engine", "pug"); // pug사용을 위한 setting
 app.set("views", process.cwd() + "/src/views");
 app.use(logger);
-app.use(express.urlencoded({ extended: true })); //express가 hrml의 form을 이해할 수 있도록함.
+app.use(express.urlencoded({ extended: true })); //express가 html의 form을 이해할 수 있도록함.
 
 app.use(
   session({
