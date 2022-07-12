@@ -21,7 +21,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 20000, //20seconds
+      maxAge: 200000, //20seconds
     },
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
@@ -36,5 +36,6 @@ app.use(localsMiddleware); //session middle ware다음에 와야함.
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
+app.use("/uploads", express.static("uploads"));
 
 export default app;
