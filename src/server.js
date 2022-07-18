@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import session from "express-session";
+import flash from "express-flash";
 import MongoStore from "connect-mongo";
 import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
@@ -15,7 +16,7 @@ app.set("view engine", "pug"); // pug사용을 위한 setting
 app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 app.use(express.urlencoded({ extended: true })); //express가 html의 form을 이해할 수 있도록함.
-
+app.use(express.json()); //이 미들웨어를 통해 백엔드로 text를 보낼 수 있음.
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(flash());
 app.use(localsMiddleware); //session middle ware다음에 와야함.
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
