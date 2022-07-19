@@ -13,17 +13,17 @@ const app = express();
 const logger = morgan("dev");
 
 app.set("view engine", "pug"); // pug사용을 위한 setting
-app.set("views", process.cwd() + "/src/views");
+app.set("views", process.cwd() + "/src/views"); //pug default경로
 app.use(logger);
 app.use(express.urlencoded({ extended: true })); //express가 html의 form을 이해할 수 있도록함.
-app.use(express.json()); //이 미들웨어를 통해 백엔드로 text를 보낼 수 있음.
+app.use(express.json()); // it can make send backend json(text) 백엔드로 text를 send
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 200000, //20seconds
+      maxAge: 3.6e6 * 24, //cookie keep 24hours
     },
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })

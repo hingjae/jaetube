@@ -1,21 +1,14 @@
 import Video from "../models/Video";
 import User from "../models/User";
 import Comment from "../models/Comment";
-/*
-Video.find({}, (error, videos) => {
-  if (error) {
-    return res.render("server-error");
-  }
-  return res.render("home", { pageTitle: "Home", videos });
-});
-*/
+
 export const home = async (req, res) => {
   const videos = await Video.find({})
     .sort({ createdAt: "desc" })
     .populate("owner");
-  // console.log(videos);
   return res.render("home", { pageTitle: "Home", videos });
 };
+
 export const watch = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id).populate("owner").populate("comments");
