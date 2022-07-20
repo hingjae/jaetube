@@ -1,7 +1,7 @@
 import User from "../models/User";
 import Video from "../models/Video";
 import fetch from "node-fetch";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 export const getJoin = (req, res) =>
   res.render("join", { pageTitle: "Create Account" });
@@ -224,3 +224,4 @@ export const see = async (req, res) => {
     user,
   });
 };
+//
