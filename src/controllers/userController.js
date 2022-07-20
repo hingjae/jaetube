@@ -47,7 +47,7 @@ export const postLogin = async (req, res) => {
   const { username, password } = req.body;
   const pageTitle = "Login";
   const user = await User.findOne({ username, socialOnly: false }); //객체를 가져옴?
-  // const exists = await User.exists({ username });
+
   if (!user) {
     return res.status(400).render("login", {
       pageTitle,
