@@ -34,11 +34,11 @@ app.use(
 // local object를 사용하면 전역변수로 쓸 수 있음.
 //render로 변수를 넘길 필요가 없음
 
-app.use((req, res, next) => {
-  res.header("Cross-Origin-Embedder-Policy", "require-corp");
-  res.header("Cross-Origin-Opener-Policy", "same-origin");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Cross-Origin-Embedder-Policy", "require-corp");
+//   res.header("Cross-Origin-Opener-Policy", "same-origin");
+//   next();
+// });
 
 app.use(flash());
 app.use(localsMiddleware); //session middle ware다음에 와야함.

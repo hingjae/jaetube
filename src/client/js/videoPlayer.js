@@ -38,7 +38,7 @@ const handleMute = (e) => {
   volumeRange.value = video.muted ? 0 : volumeValue;
 };
 
-const handleVolumeChage = (event) => {
+const handleVolumeChange = (event) => {
   const {
     target: { value },
   } = event;
@@ -111,7 +111,7 @@ const handleEnded = () => {
 
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
-volumeRange.addEventListener("input", handleVolumeChage);
+volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadeddata", handleLoadedData);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("ended", handleEnded);

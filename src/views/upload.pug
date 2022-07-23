@@ -3,7 +3,7 @@ extends base.pug
 block content
   .upload__container 
     .upload__video 
-      video#preview
+      video#preview(crossorigin)
       button#actionBtn Start Recording
     if errorMessage
       span= errorMessage
