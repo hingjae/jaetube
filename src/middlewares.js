@@ -9,17 +9,27 @@ const s3 = new aws.S3({
   },
 });
 
-const multerUploader = multerS3({
+const isHeroku = process.env.NODE_ENV === "production";
+
+const s3ImageUploader = multerS3({
   s3: s3,
-  bucket: "jaetubee",
+  bucket: "jaetubee/images",
   acl: "public-read",
   contentType: multerS3.AUTO_CONTENT_TYPE,
 });
+
+const s3VideoUploader = multerS3({
+  s3: s3,
+  bucket: "jaetubee/videos",
+  acl: "public-read",
+});
+
 //local에 저장한 변수는 모든 view에서 사용 가능!
 export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = Boolean(req.session.loggedIn);
   res.locals.siteName = "JAETUBE";
   res.locals.loggedInUser = req.session.user || {};
+  res.locals.isHeroku = isHeroku;
   next(); // next를 꼭 호출해야함.
 };
 
@@ -44,11 +54,11 @@ export const publicOnlyMiddleware = (req, res, next) => {
 export const avatarUpload = multer({
   dest: "uploads/avatars",
   limits: { fileSize: 3000000 },
-  storage: multerUploader,
+  storage: isHeroku ? s3ImageUploader : undefined,
 });
 
 export const videoUpload = multer({
   dest: "uploads/videos/",
   limits: { fileSize: 10000000 },
-  storage: multerUploader,
+  storage: isHeroku ? s3VideoUploader : undefined,
 });

@@ -29,11 +29,6 @@ app.use(
   })
 );
 
-// local object는 이미 pug templates에 import 된 상태
-
-// local object를 사용하면 전역변수로 쓸 수 있음.
-//render로 변수를 넘길 필요가 없음
-
 // app.use((req, res, next) => {
 //   res.header("Cross-Origin-Embedder-Policy", "require-corp");
 //   res.header("Cross-Origin-Opener-Policy", "same-origin");
