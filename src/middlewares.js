@@ -13,6 +13,7 @@ const multerUploader = multerS3({
   s3: s3,
   bucket: "jaetubee",
   acl: "public-read",
+  contentType: multerS3.AUTO_CONTENT_TYPE,
 });
 //local에 저장한 변수는 모든 view에서 사용 가능!
 export const localsMiddleware = (req, res, next) => {
