@@ -1,8 +1,6 @@
 {
   "name": "jaetube",
   "version": "1.0.0",
-  "description": "video app with crud",
-  "stack": "heroku-22",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hingjae/jaetube.git"

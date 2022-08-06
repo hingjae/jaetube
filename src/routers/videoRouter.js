@@ -34,7 +34,5 @@ videoRouter
     ]),
     postUpload
   );
-// videoRouter.get("/upload", getUpload);
-// videoRouter.post("/upload", postUpload);
 
 export default videoRouter;
